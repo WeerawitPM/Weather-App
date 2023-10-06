@@ -12,6 +12,7 @@ function cityData() {
         "Dubai",
         "Singapore",
         "Hong Kong",
+        "iceland",
     ]
 
     cityData.forEach((city) => {
@@ -37,17 +38,41 @@ async function searchData() {
 
 function appendData() {
     let mainData = document.getElementById("data");
-    let icon = data.weather[0].icon;
-    let iconUrl = `http://openweathermap.org/img/w/${icon}.png`;
+    // let icon = data.weather[0].icon;
+    // let iconUrl = `http://openweathermap.org/img/w/${icon}.png`;
+    let iconUrl;
     let temp = Math.round(data.main.temp - 273.15) + "°C";
     let tempMax = Math.round(data.main.temp_max - 273.15) + "°C";
     let tempMin = Math.round(data.main.temp_min - 273.15) + "°C";
+
+    switch (data.weather[0].main) {
+        case "Clouds":
+            iconUrl = "https://cdn-icons-png.flaticon.com/512/3222/3222800.png"; //มีเมฆมาก
+            break;
+        case "Clear":
+            iconUrl = "https://cdn-icons-png.flaticon.com/512/6974/6974833.png"; //อากาศแจ่มใส
+            break;
+        case "Rain":
+            iconUrl = "https://cdn-icons-png.flaticon.com/512/8841/8841317.png"; //ฝนตก
+            break;
+        case "Snow":
+            iconUrl = "https://cdn-icons-png.flaticon.com/512/2315/2315309.png"; //หิมะ
+            break;
+        case "Thunderstorm":
+            iconUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779927.png"; //ฝนฟ้าคะนอง
+            break;
+        case "Drizzle":
+            iconUrl = "https://cdn-icons-png.flaticon.com/512/3075/3075858.png"; //ฝนตกปรอย ๆ
+            break;
+        default:
+            iconUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779807.png";
+    }
 
     mainData.innerHTML = `
     <div class="card text-center px-5 py-3">
         <h2>${data.name}</h2>
         <div class="d-flex flex-row justify-content-center">
-            <img src="${iconUrl}" alt="weather icon" style="min-width: 200px;">
+            <img src="${iconUrl}" alt="weather icon" style="max-width: 200px;">
         </div>
         <h1>${temp}</h1>
         <h4>${data.weather[0].main}</h4>
