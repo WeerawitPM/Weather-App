@@ -1,4 +1,4 @@
-let data = []
+let data = [];
 
 async function searchData() {
     let latitude = document.getElementById("latitude").value;

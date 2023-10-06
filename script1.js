@@ -1,4 +1,4 @@
-let data = []
+let data = [];
 
 function cityData() {
     let dataList = document.getElementById("datalistOptions");
