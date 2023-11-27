@@ -39,7 +39,7 @@ async function searchData() {
 function appendData() {
     let mainData = document.getElementById("data");
     // let icon = data.weather[0].icon;
-    // let iconUrl = `http://openweathermap.org/img/w/${icon}.png`;
+    // let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
     let iconUrl;
     let temp = Math.round(data.main.temp - 273.15) + "°C";
     let tempMax = Math.round(data.main.temp_max - 273.15) + "°C";

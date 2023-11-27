@@ -17,7 +17,7 @@ async function searchData() {
 function appendData() {
     let mainData = document.getElementById("data");
     let iconUrl;
-    let temp = Math.round(data.main.temp - 273.15) + "°C";
+    let temp = Math.round(data.main.temp - 273.15) + "°C"; //Math.round() คือการปัดเศษทศนิยม ให้เป็นจำนวนเต็ม
     let tempMax = Math.round(data.main.temp_max - 273.15) + "°C";
     let tempMin = Math.round(data.main.temp_min - 273.15) + "°C";
 
